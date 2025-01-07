@@ -147,7 +147,7 @@ metadata:
   name: frontend
   namespace: expense
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
   selector:
     app: frontend
     tier: web
@@ -174,14 +174,14 @@ spec:
  targetCPUUtilizationPercentage: 15 # usually 75 in real environment
 
 ---
-# apiVersion: elbv2.k8s.aws/v1beta1
-# kind: TargetGroupBinding
-# metadata:
-#   name: frontend
-#   namespace: expense
-# spec:
-#   serviceRef:
-#     name: frontend # route traffic to the awesome-service
-#     port: 80
-#   targetGroupARN:  #arn:aws:elasticloadbalancing:us-east-1:315069654700:targetgroup/expense-dev/3a568c998a755e02
-#   targetType: ip
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  serviceRef:
+    name: frontend # route traffic to the awesome-service
+    port: 80
+  targetGroupARN:  arn:aws:elasticloadbalancing:us-east-1:983015583980:targetgroup/expense-dev/b945dbf4582a83df
+  targetType: ip
