@@ -21,7 +21,7 @@ It includes a **frontend**, **backend**, and **MySQL database**, with configurat
 
 ## 🛠️ Deployment
 
-1. Create the namespace:
+1.Create the namespace:
 
    kubectl apply -f namespace.yaml
 
